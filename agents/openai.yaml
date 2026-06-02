@@ -1,0 +1,4 @@
+interface:
+  display_name: "KLayout GDS"
+  short_description: "Draw and export GDS layouts using KLayout embedded Python."
+  default_prompt: "Use KLayout embedded Python to create or inspect a GDS layout from geometry data."
