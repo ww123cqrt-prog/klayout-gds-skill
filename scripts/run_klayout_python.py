@@ -17,6 +17,18 @@ MACOS_CANDIDATES = (
     "/Applications/klayout.app/Contents/MacOS/klayout",
 )
 
+WINDOWS_CANDIDATES = (
+    os.path.expandvars(r"%APPDATA%\KLayout\klayout_app.exe"),
+    os.path.expandvars(r"%LOCALAPPDATA%\KLayout\klayout_app.exe"),
+    r"C:\Program Files\KLayout\klayout_app.exe",
+    r"C:\Program Files (x86)\KLayout\klayout_app.exe",
+    r"D:\Program Files\KLayout\klayout_app.exe",
+    r"D:\Program Files (x86)\KLayout\klayout_app.exe",
+    # D drive user profile variants
+    os.path.expandvars(r"D:\%USERNAME%\AppData\Roaming\KLayout\klayout_app.exe"),
+    os.path.expandvars(r"D:\Users\%USERNAME%\AppData\Roaming\KLayout\klayout_app.exe"),
+)
+
 
 def find_klayout(explicit: str | None = None) -> str:
     candidates: list[str] = []
@@ -28,6 +40,8 @@ def find_klayout(explicit: str | None = None) -> str:
     if path_hit:
         candidates.append(path_hit)
     candidates.extend(MACOS_CANDIDATES)
+    if sys.platform == "win32":
+        candidates.extend(WINDOWS_CANDIDATES)
 
     seen: set[str] = set()
     for candidate in candidates:

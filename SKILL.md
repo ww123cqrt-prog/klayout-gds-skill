@@ -14,14 +14,14 @@ Use this skill to run KLayout as the geometry engine for layout generation. Ordi
 Do not run KLayout API scripts with `python3 script.py`. System Python often cannot import `pya`. Run `.py` macros through KLayout:
 
 ```bash
-python3 /Users/cq/.config/opencode/skills/klayout-gds/scripts/run_klayout_python.py \
-  /Users/cq/.config/opencode/skills/klayout-gds/scripts/draw_rects_from_intervals.py \
+python3 C:/Users/11/.agents/skills/klayout-gds-skill/scripts/run_klayout_python.py \
+  C:/Users/11/.agents/skills/klayout-gds-skill/scripts/draw_rects_from_intervals.py \
   --var intervals=/path/to/intervals.csv \
   --var out=/path/to/layout.gds \
   --var width_um=2.5
 ```
 
-`run_klayout_python.py` detects `KLAYOUT_BIN`, `klayout` on `PATH`, and common macOS app locations such as `/Applications/KLayout.app/Contents/MacOS/klayout`.
+`run_klayout_python.py` detects `KLAYOUT_BIN`, `klayout` on `PATH`, and common macOS app locations such as `/Applications/KLayout.app/Contents/MacOS/klayout`. On Windows, it checks `%APPDATA%\KLayout\klayout_app.exe` and standard `Program Files` locations.
 
 ## Workflow
 
@@ -47,7 +47,7 @@ python3 /Users/cq/.config/opencode/skills/klayout-gds/scripts/run_klayout_python
 Launch any KLayout Python macro through the embedded interpreter:
 
 ```bash
-python3 /Users/cq/.config/opencode/skills/klayout-gds/scripts/run_klayout_python.py \
+python3 C:/Users/11/.agents/skills/klayout-gds-skill/scripts/run_klayout_python.py \
   /path/to/macro.py \
   --var name=value \
   --var another=value
@@ -74,8 +74,8 @@ Important variables passed with `--var`:
 Example:
 
 ```bash
-python3 /Users/cq/.config/opencode/skills/klayout-gds/scripts/run_klayout_python.py \
-  /Users/cq/.config/opencode/skills/klayout-gds/scripts/draw_rects_from_intervals.py \
+python3 C:/Users/11/.agents/skills/klayout-gds-skill/scripts/run_klayout_python.py \
+  C:/Users/11/.agents/skills/klayout-gds-skill/scripts/draw_rects_from_intervals.py \
   --var intervals=/tmp/ridge_intervals.csv \
   --var out=/tmp/ridges.gds \
   --var width_um=2.5 \
@@ -88,8 +88,8 @@ python3 /Users/cq/.config/opencode/skills/klayout-gds/scripts/run_klayout_python
 Re-read a GDS/OAS file and sample centerline occupancy for round-trip checks:
 
 ```bash
-python3 /Users/cq/.config/opencode/skills/klayout-gds/scripts/run_klayout_python.py \
-  /Users/cq/.config/opencode/skills/klayout-gds/scripts/sample_gds_centerline.py \
+python3 C:/Users/11/.agents/skills/klayout-gds-skill/scripts/run_klayout_python.py \
+  C:/Users/11/.agents/skills/klayout-gds-skill/scripts/sample_gds_centerline.py \
   --var gds=/tmp/ridges.gds \
   --var out=/tmp/ridges_profile.csv \
   --var x_start_um=0 \
