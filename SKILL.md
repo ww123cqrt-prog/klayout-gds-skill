@@ -13,9 +13,11 @@ Use this skill to run KLayout as the geometry engine for layout generation. Ordi
 
 Do not run KLayout API scripts with `python3 script.py`. System Python often cannot import `pya`. Run `.py` macros through KLayout:
 
+From the skill directory:
+
 ```bash
-python3 C:/Users/11/.agents/skills/klayout-gds-skill/scripts/run_klayout_python.py \
-  C:/Users/11/.agents/skills/klayout-gds-skill/scripts/draw_rects_from_intervals.py \
+python scripts/run_klayout_python.py \
+  scripts/draw_rects_from_intervals.py \
   --var intervals=/path/to/intervals.csv \
   --var out=/path/to/layout.gds \
   --var width_um=2.5
